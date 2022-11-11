@@ -4,9 +4,10 @@ const APIURL = 'https://api.github.com/users/'
 getUser('bradtraversy')
 
 async function getUser(username) {
-	const res = await axios(APIURL + username)
+	// we can destructure to get just the data "{data}"
+	const { data } = await axios(APIURL + username)
 
-	console.log(res.data)
+	console.log(data)
 }
 
 // Example axios without async await
