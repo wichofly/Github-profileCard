@@ -1,7 +1,10 @@
 // This is goint to be root, the request are gonna be made with the root + username and repos
 const APIURL = 'https://api.github.com/users/'
 
-getUser('wichofly')
+const form = document.getElementById('form')
+const search = document.getElementById('search')
+
+// getUser('wichofly')
 
 async function getUser(username) {
   try {
@@ -14,6 +17,19 @@ async function getUser(username) {
   }
 
 }
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const user = search.value
+
+  if (user) {
+    getUser(user)
+
+    search.value = ''
+  }
+
+})
 
 // Example axios without async await
 // ----------------------------
