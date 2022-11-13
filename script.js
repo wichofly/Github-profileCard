@@ -14,7 +14,9 @@ async function getUser(username) {
 
     createUsercard(data)
   } catch (err) {
-    console.log(err)
+    if (err.response.status == 404) {
+      creatErrorCard('In our data, does not exist an user with this username')
+    }
   }
 }
 
@@ -26,7 +28,7 @@ function createUsercard(user) {
   </div>
   <div class="user-info">
     <h2>${user.name}</h2>
-    <p>${user.bio}</p>
+    <p>${user.bio || 'Bio is not available for this user'}</p>
     <ul>
       <li>${user.followers} <strong>Followers</strong></li>
       <li>${user.following} <strong>Following</strong></li>
@@ -41,6 +43,21 @@ function createUsercard(user) {
 
   main.innerHTML = cardHTML
 
+  // Another alternative to show bio when is null
+  // ---------------------------------------------
+  {/* <p><p>${user.bio == null ? "Bio is not available for this user" : user.bio}</p> */ }
+
+}
+
+function creatErrorCard(msg) {
+  const cardHTML =
+    `
+  <div class="card">
+    <h1>${msg}</h1>
+  <div>
+  `
+
+  main.innerHTML = cardHTML
 }
 
 // We get the users by submitting the form
