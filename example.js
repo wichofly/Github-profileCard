@@ -17,7 +17,7 @@
 // }
 
 
-// Example of fetching no "AXIOS"
+// Example of fetching  "NO AXIOS"
 //-------------------------------
 // function generateJoke() {
 //     const config = {
@@ -33,7 +33,7 @@
 // }
 
 
-// Example of async await without "AXIOS"
+// Example of async await "without AXIOS"
 // --------------------------------------
 // async function generateJoke() {
 //   const config = {
