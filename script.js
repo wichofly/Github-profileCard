@@ -13,10 +13,22 @@ async function getUser(username) {
     const { data } = await axios(APIURL + username)
 
     createUsercard(data)
+    getRepos(username)
   } catch (err) {
     if (err.response.status == 404) {
       creatErrorCard('In our data, does not exist an user with this username')
     }
+  }
+}
+
+async function getRepos(username) {
+  try {
+    // we can destructure to get just the data "{data}"
+    const { data } = await axios(APIURL + username + '/repos')
+
+    addReposToCard(data)
+  } catch (err) {
+    creatErrorCard('Problem fetching repos')
   }
 }
 
@@ -48,6 +60,22 @@ function createUsercard(user) {
   {/* <p><p>${user.bio == null ? "Bio is not available for this user" : user.bio}</p> */ }
 
 }
+
+function addReposToCard(repos) {
+  const reposEl = document.getElementById('repos')
+
+  repos
+    .forEach(repo => {
+      const repoEl = document.createElement('a')
+      repoEl.classList.add('repo')
+      repoEl.href = repo.html_url
+      repoEl.target = '_blank'
+      repoEl.innerText = repo.name
+
+      reposEl.appendChild(repoEl)
+    });
+}
+
 
 function creatErrorCard(msg) {
   const cardHTML =
