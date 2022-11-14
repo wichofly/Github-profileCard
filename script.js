@@ -1,4 +1,4 @@
-// This is goint to be root, the request are gonna be made with the root + username and repos
+// This is goint to be the root, the request are gonna be made with the root + username and repos
 const APIURL = 'https://api.github.com/users/'
 
 const form = document.getElementById('form')
