@@ -24,7 +24,7 @@ async function getUser(username) {
 async function getRepos(username) {
   try {
     // we can destructure to get just the data "{data}"
-    const { data } = await axios(APIURL + username + '/repos?sort=created')
+    const { data } = await axios(APIURL + username + '/repos?sort=created')  // using "?sort=created" for this API, we get he last repos made.
 
     addReposToCard(data)
   } catch (err) {
@@ -65,7 +65,7 @@ function addReposToCard(repos) {
   const reposEl = document.getElementById('repos')
 
   repos
-    .slice(0, 10)
+    .slice(0, 10) // Getting just 10 repos
     .forEach(repo => {
       const repoEl = document.createElement('a')
       repoEl.classList.add('repo')
