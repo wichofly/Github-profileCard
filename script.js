@@ -71,9 +71,9 @@ function addReposToCard(repos) {
       repoEl.classList.add('repo')
       repoEl.href = repo.html_url
       repoEl.target = '_blank'
-      repoEl.innerText = repo.name
+      repoEl.innerText = repo.name // Text inside the link
 
-      reposEl.appendChild(repoEl)
+      reposEl.appendChild(repoEl) // Inserting to the DOM
     });
 }
 
@@ -85,7 +85,7 @@ function creatErrorCard(msg) {
     <h1>${msg}</h1>
   <div>
   `
-
+  
   main.innerHTML = cardHTML
 }
 
