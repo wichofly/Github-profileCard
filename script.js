@@ -70,7 +70,7 @@ function addReposToCard(repos) {
       const repoEl = document.createElement('a')
       repoEl.classList.add('repo')
       repoEl.href = repo.html_url
-      repoEl.target = '_blank'
+      repoEl.target = '_blank' // opens in a new window
       repoEl.innerText = repo.name // Text inside the link
 
       reposEl.appendChild(repoEl) // Inserting to the DOM
@@ -79,11 +79,10 @@ function addReposToCard(repos) {
 
 
 function creatErrorCard(msg) {
-  const cardHTML =
-    `
-  <div class="card">
-    <h1>${msg}</h1>
-  <div>
+  const cardHTML = `
+    <div class="card">
+      <h1>${msg}</h1>
+    <div>
   `
   
   main.innerHTML = cardHTML
