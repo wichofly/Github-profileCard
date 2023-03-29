@@ -33,16 +33,22 @@
 // }
 
 
-// Example of async await "without AXIOS"
-// --------------------------------------
-// async function generateJoke() {
-//   const config = {
-//     headers: {
-//       'Accept': 'application/json'
-//     }
-//   }
+/*
+Example of async await "without AXIOS"
+--------------------------------------
 
-//   const res = await fetch('https://icanhazdadjoke.com', config)
-//   const data = await res.json()
-//   jokeEl.innerHTML = data.joke
-// }
+async function generateJoke() {
+    
+  const res = await fetch('https://icanhazdadjoke.com')
+  const data = await res.json()
+  jokeEl.innerHTML = data.joke
+}
+
+ - async and await are used with fetch() when you want to make an asynchronous request 
+   to a server and handle the response using a cleaner and more readable syntax.
+
+ - Within the function, we use the await keyword to wait for the fetch() and json() methods to complete and return the data from the server.
+
+ - By using async and await, we can avoid using nested then() callbacks, which can make our code harder to read and maintain.
+
+ */
